@@ -17,12 +17,14 @@ export default function About() {
         }
     };
 
+    const CUBIC_EASE = [0.22, 1, 0.36, 1];
+
     const itemVariants: Variants = {
         hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] as const }
+            transition: { duration: 0.8, ease: CUBIC_EASE as any }
         }
     };
 
@@ -74,7 +76,7 @@ export default function About() {
                     initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
                     whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                     viewport={{ once: true }}
-                    transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] as const }}
+                    transition={{ duration: 1, ease: CUBIC_EASE as any }}
                     className="relative aspect-[3/4] bg-bg border border-white/5 rounded-sm overflow-hidden group"
                 >
                     <Image
