@@ -11,7 +11,7 @@ export default function About() {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15,
+                staggerChildren: 0.2,
                 delayChildren: 0.2
             }
         }
@@ -22,7 +22,7 @@ export default function About() {
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: "easeInOut" }
+            transition: { duration: 0.8, ease: "circOut" }
         }
     };
 
