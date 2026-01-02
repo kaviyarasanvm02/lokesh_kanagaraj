@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0B0B0B;
+  --color-surface: #111111;
+  --color-primary: #E10600;
+  --color-accent: #B11226;
+  --color-muted: #9CA3AF;
+  --color-text: #F5F5F5;
+
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-oswald);
+}
+
+@layer base {
+  body {
+    @apply bg-bg text-text antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(225, 6, 0, 0.5);
+  }
+
+  .glass-panel {
+    @apply bg-surface/50 backdrop-blur-md border border-white/5;
+  }
+}
