@@ -37,7 +37,14 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },
+  icons: {
+    icon: "/favicon.jpg",
+    shortcut: "/favicon.jpg",
+    apple: "/favicon.jpg",
+  },
 };
+
+import SmoothScrollProvider from "@/components/SmoothScrollProvider";
 
 export default function RootLayout({
   children,
@@ -47,11 +54,13 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark scroll-smooth">
       <body className={`${inter.variable} ${oswald.variable} font-sans bg-bg text-text antialiased selection:bg-primary selection:text-white overflow-x-hidden`}>
-        <Navbar />
-        <main className="min-h-screen flex flex-col">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScrollProvider>
+          <Navbar />
+          <main className="min-h-screen flex flex-col">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScrollProvider>
       </body>
     </html>
   );

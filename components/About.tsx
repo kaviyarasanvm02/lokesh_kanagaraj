@@ -2,24 +2,48 @@
 
 import { motion } from "framer-motion";
 import { stats } from "@/data/reviews";
+import Image from "next/image";
+import { assets } from "@/data/assets";
 
 export default function About() {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+        }
+    };
+
     return (
         <section id="about" className="py-24 bg-surface text-white overflow-hidden relative">
             <div className="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
                 {/* TEXT CONTENT */}
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
                 >
-                    <h4 className="text-primary tracking-widest uppercase font-bold text-sm mb-4">The Visionary</h4>
-                    <h2 className="text-4xl md:text-5xl font-heading font-bold mb-8 leading-tight">
+                    <motion.h4 variants={itemVariants} className="text-primary tracking-widest uppercase font-bold text-sm mb-4">
+                        The Visionary
+                    </motion.h4>
+                    <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-heading font-bold mb-8 leading-tight">
                         BEHIND MODERN <br /> TAMIL CINEMA
-                    </h2>
-                    <div className="space-y-6 text-muted text-lg leading-relaxed">
+                    </motion.h2>
+                    <motion.div variants={itemVariants} className="space-y-6 text-muted text-lg leading-relaxed">
                         <p>
                             Lokesh Kanagaraj is one of the most influential filmmakers of contemporary Indian cinema.
                             Known for his gritty storytelling, layered characters, and interconnected cinematic universe,
@@ -29,34 +53,42 @@ export default function About() {
                             From raw beginnings to building the <span className="text-white font-bold">Lokesh Cinematic Universe (LCU)</span>,
                             his films resonate with intensity, style, and substance.
                         </p>
-                    </div>
+                    </motion.div>
 
-                    <div className="grid grid-cols-3 gap-8 mt-12 border-t border-white/10 pt-8">
+                    <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12 pt-8">
                         {stats.map((stat, index) => (
-                            <div key={index}>
-                                <h3 className="text-3xl font-heading font-bold text-white mb-1">{stat.value}</h3>
-                                <p className="text-xs text-muted uppercase tracking-wider">{stat.label}</p>
+                            <div
+                                key={index}
+                                className="group relative p-4 border border-white/5 bg-white/5 rounded-sm hover:border-primary/50 transition-colors duration-300"
+                            >
+                                <div className="absolute top-0 left-0 w-[2px] h-0 bg-primary group-hover:h-full transition-all duration-500 ease-in-out"></div>
+                                <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-1 group-hover:text-primary transition-colors">{stat.value}</h3>
+                                <p className="text-[10px] md:text-xs text-muted uppercase tracking-wider font-bold">{stat.label}</p>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </motion.div>
 
                 {/* VISUAL / IMAGE PLACEHOLDER */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+                    whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 1, ease: "circOut" }}
                     className="relative aspect-[3/4] bg-bg border border-white/5 rounded-sm overflow-hidden group"
                 >
-                    {/* Placeholder for Director's Image */}
-                    <div className="absolute inset-0 bg-neutral-900 flex items-center justify-center text-neutral-800">
-                        <span className="text-9xl font-heading opacity-50">LK</span>
-                    </div>
+                    <Image
+                        src={assets.personal}
+                        alt="Lokesh Kanagaraj"
+                        fill
+                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                    />
 
-                    {/* Overlay Effect */}
-                    <div className="absolute inset-0 bg-transparents group-hover:bg-primary/10 transition-colors duration-500"></div>
-                    <div className="absolute inset-0 border border-primary/0 group-hover:border-primary/50 transition-all duration-500 scale-95"></div>
+                    {/* Flash effect on hover */}
+                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none mix-blend-overlay"></div>
+
+                    {/* Cinematic Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60"></div>
                 </motion.div>
 
             </div>

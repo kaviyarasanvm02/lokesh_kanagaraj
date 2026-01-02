@@ -3,6 +3,25 @@
 import { motion } from "framer-motion";
 
 export default function Contact() {
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, ease: "easeOut" }
+        }
+    };
+
     return (
         <section id="contact" className="py-24 bg-surface relative overflow-hidden">
             <div className="container mx-auto px-6 flex flex-col items-center">
@@ -19,39 +38,53 @@ export default function Contact() {
                         <p className="text-muted">For collaborations, production enquiries, and media.</p>
                     </motion.div>
 
-                    <form className="space-y-6">
+                    <motion.form
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, margin: "-50px" }}
+                        className="space-y-6"
+                    >
                         <div className="grid md:grid-cols-2 gap-6">
-                            <div className="space-y-2">
+                            <motion.div variants={itemVariants} className="space-y-2">
                                 <label className="text-xs uppercase font-bold text-muted tracking-widest pl-2">Name</label>
                                 <input type="text" className="w-full bg-bg border border-white/10 p-4 text-white focus:border-primary outline-none transition-colors" placeholder="Your Name" />
-                            </div>
-                            <div className="space-y-2">
+                            </motion.div>
+                            <motion.div variants={itemVariants} className="space-y-2">
                                 <label className="text-xs uppercase font-bold text-muted tracking-widest pl-2">Email</label>
                                 <input type="email" className="w-full bg-bg border border-white/10 p-4 text-white focus:border-primary outline-none transition-colors" placeholder="email@address.com" />
-                            </div>
+                            </motion.div>
                         </div>
 
-                        <div className="space-y-2">
+                        <motion.div variants={itemVariants} className="space-y-2">
                             <label className="text-xs uppercase font-bold text-muted tracking-widest pl-2">Subject</label>
-                            <select className="w-full bg-bg border border-white/10 p-4 text-white focus:border-primary outline-none transition-colors appearance-none">
-                                <option>Production Collaboration</option>
-                                <option>Media / Interview</option>
-                                <option>Talent / Casting</option>
-                                <option>General Enquiry</option>
-                            </select>
-                        </div>
+                            <div className="relative">
+                                <select className="w-full bg-bg border border-white/10 p-4 text-white focus:border-primary outline-none transition-colors appearance-none cursor-pointer">
+                                    <option>Production Collaboration</option>
+                                    <option>Media / Interview</option>
+                                    <option>Talent / Casting</option>
+                                    <option>General Enquiry</option>
+                                </select>
+                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted text-xs">▼</div>
+                            </div>
+                        </motion.div>
 
-                        <div className="space-y-2">
+                        <motion.div variants={itemVariants} className="space-y-2">
                             <label className="text-xs uppercase font-bold text-muted tracking-widest pl-2">Message</label>
                             <textarea rows={5} className="w-full bg-bg border border-white/10 p-4 text-white focus:border-primary outline-none transition-colors" placeholder="Write your message here..."></textarea>
-                        </div>
+                        </motion.div>
 
-                        <div className="pt-4 text-center">
-                            <button type="submit" className="px-12 py-4 bg-white text-black font-bold uppercase tracking-widest hover:bg-primary hover:text-white transition-colors duration-300">
+                        <motion.div variants={itemVariants} className="pt-4 text-center">
+                            <motion.button
+                                whileHover={{ scale: 1.02, backgroundColor: "#E10600", color: "#FFFFFF" }}
+                                whileTap={{ scale: 0.98 }}
+                                type="submit"
+                                className="px-12 py-4 bg-white text-black font-bold uppercase tracking-widest transition-all duration-300 shadow-lg"
+                            >
                                 Send Message
-                            </button>
-                        </div>
-                    </form>
+                            </motion.button>
+                        </motion.div>
+                    </motion.form>
                 </div>
 
             </div>

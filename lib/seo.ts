@@ -9,7 +9,7 @@ export const siteConfig = {
     name: "Lokesh Kanagaraj",
     description: "Filmmaker. Storyteller. Architect of the Lokesh Cinematic Universe.",
     url: "https://lokeshkanagaraj.com", // Placeholder
-    ogImage: "https://lokeshkanagaraj.com/og.jpg", // Placeholder
+    ogImage: "https://lokeshkanagaraj.com/logesh.jpg", // Placeholder
     links: {
         twitter: "https://twitter.com/Dir_Lokesh",
         instagram: "https://instagram.com/lokesh.kanagaraj", // Placeholder if not real

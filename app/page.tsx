@@ -4,7 +4,6 @@ import Filmography from "@/components/Filmography";
 import LCU from "@/components/LCU";
 import Reviews from "@/components/Reviews";
 import Upcoming from "@/components/Upcoming";
-import Gallery from "@/components/Gallery";
 import Contact from "@/components/Contact";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <LCU />
       <Upcoming />
       <Reviews />
-      <Gallery />
       <Contact />
     </>
   );
