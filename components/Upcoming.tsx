@@ -17,7 +17,7 @@ export default function Upcoming() {
                         {/* Animated gradient border top */}
                         <motion.div
                             animate={{ x: ["-100%", "100%"] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            transition={{ duration: 3, repeat: Infinity, ease: [0, 0, 1, 1] as const }}
                             className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/50 to-transparent opacity-50"
                         ></motion.div>
 
@@ -49,7 +49,7 @@ export default function Upcoming() {
                         <div className="inline-block relative group cursor-pointer">
                             <motion.span
                                 animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                                transition={{ duration: 6, repeat: Infinity, ease: [0.42, 0, 0.58, 1] as const }}
                                 className="text-8xl font-heading font-bold text-white/5 select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
                             >
                                 LCU

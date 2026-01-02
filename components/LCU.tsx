@@ -29,7 +29,7 @@ export default function LCU() {
                         strokeWidth="0.5"
                         initial={{ pathLength: 0 }}
                         whileInView={{ pathLength: 1 }}
-                        transition={{ duration: 3, ease: "easeInOut" }}
+                        transition={{ duration: 3, ease: [0.42, 0, 0.58, 1] as const }}
                     />
                 </svg>
             </div>
@@ -63,7 +63,7 @@ export default function LCU() {
                             initial={{ height: "0%" }}
                             whileInView={{ height: "100%" }}
                             viewport={{ once: true }}
-                            transition={{ duration: 1.5, ease: "linear" }}
+                            transition={{ duration: 1.5, ease: [0, 0, 1, 1] as const }}
                             className="w-full bg-primary shadow-[0_0_10px_#E10600]"
                         ></motion.div>
                     </div>
