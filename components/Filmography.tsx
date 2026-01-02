@@ -5,7 +5,7 @@ import { movies } from "@/data/movies";
 import Image from "next/image";
 
 export default function Filmography() {
-    const releasedMovies = movies.filter(m => !m.isUpcoming);
+    const releasedMovies = movies;
 
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
