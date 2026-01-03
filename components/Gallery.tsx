@@ -20,6 +20,14 @@ export default function Gallery() {
         { src: assets.rolex, title: "Rolex (Vikram/Leo)" },
         { src: assets.dillivsrolex, title: "Faceoff (Dilli vs Rolex)" },
         { src: assets.master, title: "Master (Film)" },
+        { src: assets.leovsparthipan, title: "Leo vs Parthiban" },
+        { src: assets.alterego, title: "Alter Ego (Leo)" },
+        { src: assets.interval, title: "Interval Block (Vikram)" },
+        { src: assets.dasss, title: "Harold Das" },
+        { src: assets.leodas2, title: "Leo Das (Badass)" },
+        { src: assets.briyaniscene, title: "Briyaniscene" },
+        { src: assets.kaithifight, title: "Kaithi Fight" }
+
     ];
 
     return (

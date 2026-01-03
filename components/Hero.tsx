@@ -72,10 +72,10 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-primary/5"></div>
 
                 {/* Floating Movie Elements (Only visible in light) */}
-                <div className="absolute top-[15%] left-[10%] w-[200px] aspect-[2/3] rotate-[-12deg] z-10">
+                <div className="hidden md:block absolute top-[15%] left-[10%] w-[200px] aspect-[2/3] rotate-[-12deg] z-10">
                     <Image src={assets.leo} alt="Leo" fill className="object-cover rounded-lg shadow-2xl border border-white/20" />
                 </div>
-                <div className="absolute bottom-[20%] left-[15%] w-[180px] aspect-[2/3] rotate-[6deg] z-10">
+                <div className="hidden md:block absolute bottom-[20%] left-[15%] w-[180px] aspect-[2/3] rotate-[6deg] z-10">
                     <Image src={assets.vikram} alt="Vikram" fill className="object-cover rounded-lg shadow-2xl border border-white/20" />
                 </div>
 

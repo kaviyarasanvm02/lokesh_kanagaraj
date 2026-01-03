@@ -30,6 +30,14 @@ export const assets = {
     vikramm: "/images/vikramm.jpg",
     parthipan: "/images/parthipan.jpg",
 
+    alterego: "/images/alterego.jpg",
+    dasss: "/images/dasss.jpg",
+    interval: "/images/interval.jpg",
+    leodas2: "/images/leodas.jpg",
+    leovsparthipan: "/images/leovsparthipan.jpg",
+    briyaniscene: "/images/briyaniscene.jpg",
+    kaithiclimax: "/images/kaithiclimax.jpeg",
+    kaithifight: "/images/kaithifight.jpeg",
     // LCU
     lcuCover: "/images/lcu.jpg",
     dillivsrolex: "/images/dillivsrolex.jpg",
