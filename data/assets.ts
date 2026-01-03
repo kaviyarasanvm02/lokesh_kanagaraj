@@ -9,8 +9,8 @@ export const assets = {
     // Movies
     // Movies
     maanagaram: "/images/maanagaram.jpg",
-    kaithi: "/images/kaithi.jpg",
-    master: "/images/master.jpg",
+    kaithi: "/images/kaithi.jpeg",
+    master: "/images/master.jpeg",
     vikram: "/images/vikram.jpg",
     leo: "/images/leo.jpeg",
     coolie: "/images/cooliee.jpg",

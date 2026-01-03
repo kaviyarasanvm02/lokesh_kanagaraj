@@ -39,7 +39,7 @@ export default function Gallery() {
 
             <div className="w-full relative">
                 {/* 3D Carousel Component */}
-                <ThreeDCarousel images={movieImages} />
+                <ThreeDCarousel images={movieImages} disableClick={true} />
 
                 {/* Background Glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-primary/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>

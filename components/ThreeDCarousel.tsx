@@ -8,9 +8,11 @@ import {
     useMotionValue,
     useTransform,
     PanInfo,
-    animate
+    animate,
+    useSpring
 } from "framer-motion";
 import { X } from "lucide-react";
+import Image from "next/image";
 
 // Helper hook for media query
 // Helper hook for media query - Safe for hydration
@@ -31,6 +33,7 @@ function useMediaQuery(query: string): boolean {
 
 const duration = 0.15;
 const transition = { duration, ease: [0.32, 0.72, 0, 1] as const, filter: "blur(4px)" };
+const MotionImage = motion(Image);
 
 // Types
 type CardType = string | { src: string; title?: string;[key: string]: any };
@@ -45,6 +48,7 @@ interface CarouselProps {
     isCarouselActive: boolean;
     rotation: any; // MotionValue<number>
     transform: any; // MotionValue<string>
+    disableClick?: boolean;
 }
 
 const Carousel = memo(
@@ -54,6 +58,7 @@ const Carousel = memo(
         isCarouselActive,
         rotation,
         transform,
+        disableClick
     }: CarouselProps) => {
         const isScreenSizeSm = useMediaQuery("(max-width: 640px)");
 
@@ -87,7 +92,9 @@ const Carousel = memo(
                 onPan={(_, info: PanInfo) => {
                     if (isCarouselActive) {
                         // Update rotation based on delta
-                        rotation.set(rotation.get() + info.delta.x * 0.1);
+                        // Lower sensitivity on desktop (was 0.1)
+                        const sensitivity = isScreenSizeSm ? 0.1 : 0.05;
+                        rotation.set(rotation.get() + info.delta.x * sensitivity);
                     }
                 }}
                 onPanEnd={(_, info: PanInfo) => {
@@ -113,6 +120,7 @@ const Carousel = memo(
                         z: -radius,
                         width: containerWidth,
                         transformStyle: "preserve-3d",
+                        willChange: "transform"
                     }}
                 >
                     {cards.map((card, i) => {
@@ -133,19 +141,22 @@ const Carousel = memo(
                                         }deg) translateZ(${radius}px)`,
                                     padding: '8px',
                                 }}
-                                onTap={() => handleClick(card, i)}
+                                onTap={() => !disableClick && handleClick(card, i)}
                                 whileHover={{ scale: 1.1, zIndex: 10 }}
-                                className="group cursor-pointer"
+                                className={`group ${disableClick ? '' : 'cursor-pointer'}`}
                             >
-                                <motion.img
+                                <MotionImage
                                     src={imgSrc}
                                     alt={imgAlt}
+                                    width={faceWidth}
+                                    height={faceWidth * 1.5}
                                     layoutId={`img-${imgSrc}`}
                                     initial={{ filter: "blur(4px)" }}
                                     animate={{ filter: "blur(0px)" }}
                                     transition={transition}
-                                    loading="lazy"
-                                    decoding="async"
+                                    // loading="lazy" // next/image handles this
+                                    // decoding="async"
+                                    draggable={false}
                                     className="w-full rounded-xl object-cover aspect-[2/3] pointer-events-none shadow-lg group-hover:shadow-[0_0_20px_rgba(225,6,0,0.4)] transition-shadow duration-300 border border-white/5 group-hover:border-primary/50"
                                 />
                             </motion.div>
@@ -158,7 +169,7 @@ const Carousel = memo(
 );
 Carousel.displayName = "Carousel";
 
-export default function ThreeDCarousel({ images }: { images: CardType[] }) {
+export default function ThreeDCarousel({ images, disableClick = false }: { images: CardType[], disableClick?: boolean }) {
     const [activeCard, setActiveCard] = useState<CardType | null>(null);
     const [isCarouselActive, setIsCarouselActive] = useState(true);
 
@@ -242,6 +253,7 @@ export default function ThreeDCarousel({ images }: { images: CardType[] }) {
                     isCarouselActive={isCarouselActive}
                     rotation={rotation}
                     transform={transform}
+                    disableClick={disableClick}
                 />
             </div>
             {/* Interaction Hint */}

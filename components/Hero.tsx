@@ -49,7 +49,7 @@ export default function Hero() {
                 </div>
 
                 {/* Director Image - Grayscale & Dark */}
-                <div className="absolute bottom-0 right-0 lg:right-[10%] w-[90vw] lg:w-[45vw] h-[80vh] opacity-30 grayscale contrast-125">
+                <div className="absolute bottom-12 left-0 right-0 mx-auto lg:mx-0 lg:left-auto lg:bottom-0 lg:right-[10%] w-[90vw] lg:w-[45vw] h-[80vh] opacity-30 grayscale contrast-125">
                     <Image
                         src={assets.heroImage}
                         alt="Lokesh Kanagaraj"
@@ -90,7 +90,7 @@ export default function Hero() {
                 </div>
 
                 {/* Director Image - Full Color & Sharp */}
-                <div className="absolute bottom-0 right-0 lg:right-[10%] w-[90vw] lg:w-[45vw] h-[80vh]">
+                <div className="absolute bottom-12 left-0 right-0 mx-auto lg:mx-0 lg:left-auto lg:bottom-0 lg:right-[10%] w-[90vw] lg:w-[45vw] h-[80vh]">
                     <Image
                         src={assets.heroImage}
                         alt="Lokesh Kanagaraj"

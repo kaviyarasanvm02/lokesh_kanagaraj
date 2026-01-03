@@ -34,20 +34,7 @@ export default function Upcoming() {
                             </motion.h2>
                         </div>
 
-                        {/* Image Section */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
-                            className="relative w-full max-w-2xl mx-auto mb-10 aspect-video rounded-lg overflow-hidden border border-white/10 shadow-2xl shadow-primary/10"
-                        >
-                            <img
-                                src="/images/dillivsrolex.jpg"
-                                alt="Dilli vs Rolex"
-                                className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent"></div>
-                        </motion.div>
+
 
                         <motion.p
                             initial={{ opacity: 0, y: 10 }}
