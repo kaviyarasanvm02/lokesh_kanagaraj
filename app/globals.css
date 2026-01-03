@@ -10,6 +10,18 @@
 
   --font-sans: var(--font-inter);
   --font-heading: var(--font-oswald);
+
+  --animate-shine: shine 2s infinite linear;
+
+  @keyframes shine {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(200%);
+    }
+  }
 }
 
 @layer base {

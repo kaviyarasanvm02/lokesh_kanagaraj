@@ -1,43 +1,40 @@
 "use client";
 
-import { motion } from "framer-motion";
-
-const images = [
-    "bg-red-900",
-    "bg-neutral-800",
-    "bg-zinc-900",
-    "bg-stone-900",
-    "bg-orange-950",
-    "bg-black"
-];
+import { assets } from "@/data/assets";
+import ThreeDCarousel from "./ThreeDCarousel";
 
 export default function Gallery() {
+    const movieImages = [
+        { src: assets.agent, title: "Agent Amar" },
+        { src: assets.anbu, title: "Anbu" },
+        { src: assets.bavani, title: "Bhavani" },
+        { src: assets.das, title: "Antony Das" },
+        { src: assets.leooo, title: "Leo" },
+        { src: assets.vikramm, title: "Vikram" },
+        { src: assets.parthipan, title: "Parthiban" },
+        { src: assets.kaithi, title: "Dilli (Kaithi)" },
+        { src: assets.jd, title: "JD (Master)" },
+        { src: assets.kamal, title: "Vikram (Vikram)" },
+        { src: assets.leodass, title: "Leo Dass (Leo)" },
+        { src: assets.deva, title: "Deva (Coolie)" },
+        { src: assets.rolex, title: "Rolex (Vikram/Leo)" },
+        { src: assets.dillivsrolex, title: "Faceoff (Dilli vs Rolex)" },
+        { src: assets.master, title: "Master (Film)" },
+    ];
+
     return (
-        <section className="py-24 bg-bg">
-            <div className="container mx-auto px-6 mb-12 flex justify-between items-end">
-                <h2 className="text-3xl font-heading font-bold text-white uppercase">Visuals</h2>
+        <section className="py-24 bg-bg border-t border-white/5 overflow-hidden">
+            <div className="container mx-auto px-6 mb-8 flex justify-between items-end">
+                <h2 className="text-3xl font-heading font-bold text-white uppercase tracking-wider">Cinematic <span className="text-primary">Frames</span></h2>
                 <div className="hidden md:block w-32 h-[1px] bg-white/20"></div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-                {images.map((color, index) => (
-                    <motion.div
-                        key={index}
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                        className={`relative aspect-square md:aspect-video ${color} overflow-hidden group cursor-pointer`}
-                    >
-                        {/* Simulated Image */}
-                        <div className="absolute inset-0 opacity-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+            <div className="w-full relative">
+                {/* 3D Carousel Component */}
+                <ThreeDCarousel images={movieImages} />
 
-                        {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span className="text-white font-bold uppercase tracking-widest translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View Still</span>
-                        </div>
-                    </motion.div>
-                ))}
+                {/* Background Glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[50%] bg-primary/10 blur-[100px] rounded-full pointer-events-none -z-10"></div>
             </div>
         </section>
     );

@@ -32,29 +32,37 @@ export default function Upcoming() {
                             >
                                 THE NEXT <br /> CHAPTER
                             </motion.h2>
-                            {/* Glitch clone (visual flair) */}
-                            <motion.h2
-                                animate={{ opacity: [0, 0.5, 0] }}
-                                transition={{ duration: 0.2, repeat: Infinity, repeatDelay: 3 }}
-                                className="text-5xl md:text-7xl font-heading font-bold text-primary absolute top-0 left-1 opacity-0 z-0 mix-blend-screen"
-                            >
-                                THE NEXT <br /> CHAPTER
-                            </motion.h2>
                         </div>
+
+                        {/* Image Section */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2 }}
+                            className="relative w-full max-w-2xl mx-auto mb-10 aspect-video rounded-lg overflow-hidden border border-white/10 shadow-2xl shadow-primary/10"
+                        >
+                            <img
+                                src="/images/dillivsrolex.jpg"
+                                alt="Dilli vs Rolex"
+                                className="object-cover w-full h-full hover:scale-105 transition-transform duration-700"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent"></div>
+                        </motion.div>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.4, duration: 0.6 }}
+                            className="text-2xl md:text-4xl font-heading font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-primary to-white mb-6 drop-shadow-sm italic"
+                        >
+                            "Madly waiting for the Dilli vs Rolex face-off!"
+                        </motion.p>
 
                         <p className="text-xl text-muted max-w-2xl mx-auto mb-12">
                             With multiple upcoming collaborations and the expansion of the LCU, the cinematic boundaries are about to be pushed further.
                         </p>
 
                         <div className="inline-block relative group cursor-pointer">
-                            <motion.span
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 6, repeat: Infinity, ease: [0.42, 0, 0.58, 1] as const }}
-                                className="text-8xl font-heading font-bold text-white/5 select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-                            >
-                                LCU
-                            </motion.span>
-
                             <motion.div
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}

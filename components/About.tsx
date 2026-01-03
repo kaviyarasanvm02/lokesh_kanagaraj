@@ -77,13 +77,12 @@ export default function About() {
                     whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
                     viewport={{ once: true }}
                     transition={{ duration: 1, ease: CUBIC_EASE }}
-                    className="relative aspect-[3/4] bg-bg border border-white/5 rounded-sm overflow-hidden group"
+                    className="relative bg-bg border border-white/5 rounded-sm overflow-hidden group"
                 >
-                    <Image
+                    <img
                         src={assets.personal}
                         alt="Lokesh Kanagaraj"
-                        fill
-                        className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                        className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-105 block"
                     />
 
                     {/* Flash effect on hover */}
